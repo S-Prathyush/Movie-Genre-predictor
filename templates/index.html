@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Genre Predictor</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            max-width: 70%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #00DBDE;
+            background-image: linear-gradient(90deg, #00DBDE 0%, #FC00FF 100%);
+            justify-content: center; /* Center the buttons */
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center; /* Center the h1 tag */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the label and input fields */
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            width: 40%; /* Reduced label width */
+            text-align: center; /* Center the label text */
+        }
+
+        textarea {
+            padding: 5px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%; /* Reduced input width */
+            height: 100px; /* Increased textarea height */
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #FFE53B;
+            background-image: linear-gradient(147deg, #FFE53B 0%, #FF2525 74%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            width: 20%; /* Reduced button width */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center; /* Center the h3 tag */
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center; /* Center the p tag */
+        }
+
+        .anchor-container {
+            display: flex;
+            justify-content: center; /* Center the anchor tag */
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            background-color: #FF3CAC;
+            background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            width: 50%; /* Reduced button width */
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Movie Genre Predictor</h1>
+    <form method="post">
+        <label for="description">Enter Movie Description:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Predict Genre">
+    </form>
+    {% if description %}
+        <h3>Input Description:</h3>
+        <p>{{ description }}</p>
+    {% endif %}
+    {% if predicted_genre %}
+        <h3>Predicted Genre:</h3>
+        <p>{{ predicted_genre }}</p>
+    {% endif %}
+</body>
+</html>
